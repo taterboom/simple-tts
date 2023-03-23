@@ -1,0 +1,9 @@
+datasets==2.10.1
+Flask==2.2.3
+sentencepiece==0.1.97
+soundfile==0.12.1
+torch==2.0.0
+torchaudio==2.0.1
+torchvision==0.15.1
+tqdm==4.64.1
+transformers==4.27.2

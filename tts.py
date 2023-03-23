@@ -1,6 +1,7 @@
 # Following pip packages need to be installed:
 # !pip install git+https://github.com/huggingface/transformers sentencepiece datasets
 
+import io
 from tqdm import tqdm
 from transformers import SpeechT5Processor, SpeechT5ForTextToSpeech, SpeechT5HifiGan
 from datasets import load_dataset
@@ -47,5 +48,7 @@ def tts(text, speaker):
     speech = model.generate_speech(
         inputs["input_ids"], get_speaker_embedding(speaker), vocoder=vocoder)
     filename = f"speech_{speaker}.mp3"
-    sf.write(filename, speech.numpy(), samplerate=16000)
-    return filename
+    memory_file = io.BytesIO()
+    memory_file.name = filename
+    sf.write(memory_file, speech.numpy(), samplerate=16000)
+    return memory_file
