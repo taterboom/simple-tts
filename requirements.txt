@@ -7,3 +7,4 @@ torchaudio==2.0.1
 torchvision==0.15.1
 tqdm==4.64.1
 transformers==4.27.2
+waitress==2.1.2

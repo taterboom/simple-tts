@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route('/tts/<text>/<speaker>')
 def tts_route(text, speaker):
     b = tts(text, speaker)
-    return send_file(b, mimetype='audio/mp3')
+    return send_file(b, mimetype='audio/wav')
 
 
 if __name__ == '__main__':

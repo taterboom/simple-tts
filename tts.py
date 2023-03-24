@@ -43,12 +43,13 @@ def get_speaker_embedding(speaker: str):
 #         inputs["input_ids"], get_speaker_embedding(speaker), vocoder=vocoder)
 #     sf.write(f"speech_{speaker}.mp3", speech.numpy(), samplerate=16000)
 
+# mp3 has bug in libsndfile, use wav instead
 def tts(text, speaker):
     inputs = processor(text=text, return_tensors="pt")
     speech = model.generate_speech(
         inputs["input_ids"], get_speaker_embedding(speaker), vocoder=vocoder)
-    filename = f"speech_{speaker}.mp3"
+    filename = f"speech_{speaker}.wav"
     memory_file = io.BytesIO()
     memory_file.name = filename
-    sf.write(memory_file, speech.numpy(), samplerate=16000)
+    sf.write(memory_file, speech.numpy(), samplerate=16000, format='WAV')
     return memory_file
