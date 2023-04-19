@@ -8,3 +8,4 @@ torchvision==0.15.1
 tqdm==4.64.1
 transformers==4.27.2
 waitress==2.1.2
+azure-cognitiveservices-speech==1.26.0
