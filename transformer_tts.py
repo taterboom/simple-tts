@@ -12,6 +12,9 @@ import numpy as np
 processor = SpeechT5Processor.from_pretrained("microsoft/speecht5_tts")
 model = SpeechT5ForTextToSpeech.from_pretrained("microsoft/speecht5_tts")
 vocoder = SpeechT5HifiGan.from_pretrained("microsoft/speecht5_hifigan")
+# processor.save_pretrained('microsoft/speecht5_tts')
+# model.save_pretrained('microsoft/speecht5_tts')
+# vocoder.save_pretrained('microsoft/speecht5_hifigan')
 
 speaker_embeddings = {
     "BDL": "spkemb/cmu_us_bdl_arctic-wav-arctic_a0009.npy",
