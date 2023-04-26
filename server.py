@@ -1,11 +1,14 @@
 # flask server for the web app
 
 from flask import Flask, send_file, request
+from flask_cors import CORS
 
 from transformer_tts import tts as transformer_tts
 from azure_tts import tts as azure_tts
 
 app = Flask(__name__)
+CORS(app, origins=['http://local.web.aishengyin.cn:3000',
+     'https://web.aishengyin.cn'])
 
 
 @app.route('/tts', methods=['POST'])
