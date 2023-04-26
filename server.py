@@ -8,7 +8,7 @@ from azure_tts import tts as azure_tts
 
 app = Flask(__name__)
 CORS(app, origins=['http://local.web.aishengyin.cn:3000',
-     'https://web.aishengyin.cn'])
+     'https://web.aishengyin.cn'], supports_credentials=True)
 
 
 @app.route('/tts', methods=['POST'])
